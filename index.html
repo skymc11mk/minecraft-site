@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عالم ماين كرافت - دليل البقاء والنصائح</title>
+<meta name="description" content="دليل عربي بسيط للاعبي ماين كرافت: بداية البقاء، الخامات، الأوامر المفيدة ونصائح للبناء.">
+<style>
+:root{
+  --grass:#5d9b3a; --dirt:#7a5230; --stone:#8b8b8b; --night:#17241a; --sand:#efe3b0; --ink:#1b1b1b; --lava:#e2631b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,"Segoe UI","Noto Naskh Arabic",Arial,sans-serif;background:var(--night);color:var(--sand);line-height:1.8}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lava);outline-offset:3px}
+nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;padding:14px 16px;background:#0f1810;border-bottom:4px solid var(--dirt)}
+nav a{text-decoration:none;font-weight:bold;padding:4px 10px}
+nav a:hover{background:var(--grass);color:#fff}
+.hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:36px;padding:48px 20px 56px;max-width:960px;margin:auto}
+.hero h1{font-size:clamp(2rem,6vw,3.4rem);margin:0 0 8px;line-height:1.3;color:#fff;text-shadow:4px 4px 0 #000}
+.hero p{max-width:30em;margin:0 0 16px}
+.mine{text-align:center}
+#block{display:grid;grid-template-columns:repeat(16,1fr);width:min(280px,70vw);aspect-ratio:1;border:4px solid #000;cursor:pointer;image-rendering:pixelated;user-select:none;-webkit-tap-highlight-color:transparent;padding:0;background:none}
+#block i{display:block}
+#block.hit{transform:scale(.94)}
+.counter{margin-top:12px;font-weight:bold}
+section{max-width:960px;margin:auto;padding:36px 20px}
+h2{font-size:1.7rem;margin:0 0 18px;color:#fff;border-right:10px solid var(--grass);padding-right:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:#22351f;border:3px solid #000;box-shadow:inset -4px -4px 0 #1a2a18,inset 4px 4px 0 #34502f;padding:16px}
+.card h3{margin:0 0 4px;color:#fff}
+.card p{margin:0}
+.chip{display:inline-block;width:14px;height:14px;margin-left:8px;border:2px solid #000;vertical-align:middle}
+ol.steps{padding-right:24px;margin:0}
+ol.steps li{margin-bottom:10px}
+.cmd{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#0f1810;border:3px solid #000;padding:10px 14px;margin-bottom:10px}
+.cmd code{direction:ltr;background:#000;color:#8ff08a;padding:2px 10px;font-family:Consolas,monospace}
+.cmd button{font:inherit;background:var(--grass);color:#fff;border:3px solid #000;padding:2px 12px;cursor:pointer;margin-right:auto}
+.cmd button:hover{background:var(--lava)}
+footer{text-align:center;padding:28px 16px;background:#0f1810;border-top:4px solid var(--dirt);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#blocks">الخامات</a>
+  <a href="#survive">أول ليلة</a>
+  <a href="#commands">الأوامر</a>
+  <a href="#build">البناء</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>عالم ماين كرافت</h1>
+    <p>دليل عربي بسيط يبدأ معك من أول شجرة تقطعها إلى أول بيت تبنيه. جرّب كسر الكتلة بجانبك وانظر كم كتلة تستطيع جمعها.</p>
+  </div>
+  <div class="mine">
+    <button id="block" aria-label="اضغط لكسر الكتلة"></button>
+    <div class="counter">الكتل المكسورة: <span id="count">0</span></div>
+  </div>
+</header>
+
+<section id="blocks">
+  <h2>خامات تحتاجها</h2>
+  <div class="grid">
+    <div class="card"><h3><span class="chip" style="background:#8a6a3c"></span>الخشب</h3><p>أول ما تجمعه. منه تصنع طاولة الصناعة وأدواتك الأولى.</p></div>
+    <div class="card"><h3><span class="chip" style="background:#8b8b8b"></span>الحجر</h3><p>أدوات الحجر أقوى من الخشب وتتحمل أكثر. اصنع منه الفأس والمعول.</p></div>
+    <div class="card"><h3><span class="chip" style="background:#d8af93"></span>الحديد</h3><p>اصهره في الفرن. منه الدرع والسيف وأدوات سريعة.</p></div>
+    <div class="card"><h3><span class="chip" style="background:#4ee8e0"></span>الألماس</h3><p>يوجد في الأعماق قرب الطبقات السفلية. احذر الحمم عند الحفر.</p></div>
+  </div>
+</section>
+
+<section id="survive">
+  <h2>كيف تنجو في أول ليلة</h2>
+  <ol class="steps">
+    <li>اقطع الأشجار واجمع نحو 10 قطع خشب.</li>
+    <li>اصنع طاولة صناعة، ثم فأساً ومعولاً من الخشب.</li>
+    <li>اجمع الحجر واستبدل أدواتك بأدوات الحجر.</li>
+    <li>ابنِ مأوى صغيراً أو احفر في جبل وسدّ المدخل قبل حلول الظلام.</li>
+    <li>ضع مشاعل داخل المأوى حتى لا تظهر الوحوش.</li>
+    <li>اطبخ الطعام في الفرن، فالطعام المطبوخ يشبعك أكثر.</li>
+  </ol>
+</section>
+
+<section id="commands">
+  <h2>أوامر مفيدة</h2>
+  <p>اكتبها في الدردشة بعد الضغط على T. تعمل عند تفعيل الغش في العالم. اضغط «نسخ» لتنسخ الأمر.</p>
+  <div class="cmd"><code>/gamemode creative</code><span>وضع الإبداع للبناء الحر</span><button type="button">نسخ</button></div>
+  <div class="cmd"><code>/gamemode survival</code><span>العودة لوضع البقاء</span><button type="button">نسخ</button></div>
+  <div class="cmd"><code>/time set day</code><span>تحويل الوقت إلى نهار</span><button type="button">نسخ</button></div>
+  <div class="cmd"><code>/weather clear</code><span>إيقاف المطر</span><button type="button">نسخ</button></div>
+  <div class="cmd"><code>/tp @s ~ ~10 ~</code><span>الانتقال 10 كتل للأعلى</span><button type="button">نسخ</button></div>
+</section>
+
+<section id="build">
+  <h2>نصائح للبناء</h2>
+  <div class="grid">
+    <div class="card"><h3>ابدأ بالشكل</h3><p>ارسم الأرضية أولاً بكتل مختلفة، ثم ارفع الجدران.</p></div>
+    <div class="card"><h3>نوّع الخامات</h3><p>اخلط الحجر مع الخشب. الجدار بلون واحد يبدو مملاً.</p></div>
+    <div class="card"><h3>اهتم بالسقف</h3><p>السقف المائل بالدرجات يعطي البيت شكلاً أجمل من السقف المسطح.</p></div>
+    <div class="card"><h3>أضف الإضاءة</h3><p>الفوانيس والمشاعل تزيّن البيت وتمنع ظهور الوحوش حوله.</p></div>
+  </div>
+</section>
+
+<footer>موقع عربي لمحبي ماين كرافت. ماين كرافت علامة تجارية مملوكة لشركة Mojang وهذا الموقع غير رسمي.</footer>
+
+<script>
+(function(){
+  var block=document.getElementById('block'), countEl=document.getElementById('count'), n=0;
+  function pick(a){return a[Math.floor(Math.random()*a.length)];}
+  var types=[
+    {top:['#5d9b3a','#6aab45','#4f8a31'],body:['#7a5230','#6b4527','#8a5e38']},
+    {top:['#8b8b8b','#9a9a9a','#7d7d7d'],body:['#8b8b8b','#7d7d7d','#9a9a9a']},
+    {top:['#efe3b0','#e2d59a','#f5ebc3'],body:['#e2d59a','#efe3b0','#d6c88a']}
+  ];
+  function make(){
+    var t=pick(types), html='';
+    for(var r=0;r<16;r++){
+      for(var c=0;c<16;c++){
+        var set=(r<4)?t.top:t.body;
+        html+='<i style="background:'+pick(set)+'"></i>';
+      }
+    }
+    block.innerHTML=html;
+  }
+  block.addEventListener('click',function(){
+    n++; countEl.textContent=n;
+    block.classList.add('hit');
+    setTimeout(function(){block.classList.remove('hit');make();},90);
+  });
+  document.querySelectorAll('.cmd button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var txt=b.parentNode.querySelector('code').textContent;
+      if(navigator.clipboard){navigator.clipboard.writeText(txt).catch(function(){});}
+      var old=b.textContent; b.textContent='تم النسخ';
+      setTimeout(function(){b.textContent=old;},1200);
+    });
+  });
+  make();
+})();
+</script>
+</body>
+</html>
